@@ -106,7 +106,7 @@ In order to assess the versitility and flexibility of the system 5 random German
 
 ## Network output
 For each of the traffic signs the top 5 possible answers, ranked by probability as perceived by the network, are displayed with their meaning and probability assumption.  
-![image_r_1](/Writeup-images/11.resized.jpg "Right-of-way at the next intersection" =96x96)  
+![image_r_1](/Writeup-images/11.resized.jpg "Right-of-way at the next intersection"){:height="300%" width="300%"}  
 Actual sign:  11 (Right-of-way at the next intersection)
 Prediction 0: 11 (Right-of-way at the next intersection) with a certainty of: 100%
 Prediction 1: 30 (Beware of ice/snow) with a certainty of: 0%
