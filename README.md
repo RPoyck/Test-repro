@@ -3,14 +3,14 @@
 
 # Overview
 ---
-In this project, I have used what I've learned about deep neural networks and convolutional neural networks to classify traffic signs. I trained and validated a model so it can classify traffic sign images using the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). After the model is trained, you will then try out your model on images of German traffic signs that you find on the web.
+In this project, I have used what I've learned about deep neural networks and convolutional neural networks to classify traffic signs. I trained and validated a model so it can classify traffic sign images using the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). After the model was trained, it was tested on 5 random images of German traffic signs found on the web.
 
 The included Ipython notebook is based heavily on the starter code and instructions in the example [Ipython notebook](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb). 
 
 To meet specifications, the project submission consist of three files: 
-* The Ipython notebook "Traffic_Sign_Classifier-Rob_Poyck.ipynb" with the code
-* The code exported as an html file "Traffic_Sign_Classifier-Rob_Poyck"
-* A write-up report either as a markdown or PDF file 
+* The [Ipython notebook]("Traffic_Sign_Classifier-Rob_Poyck.ipynb") with the code.
+* The code exported as an [html file]("Traffic_Sign_Classifier-Rob_Poyck.html").
+* A write-up report either as a markdown file which you are now reading. 
 
 # The Project
 ---
