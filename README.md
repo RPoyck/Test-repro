@@ -1,25 +1,18 @@
-## Project: Build a Traffic Sign Recognition Program
+# Project: Build a Traffic Sign Recognition Program
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
-Overview
+# Overview
 ---
 In this project, I have used what I've learned about deep neural networks and convolutional neural networks to classify traffic signs. I trained and validated a model so it can classify traffic sign images using the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). After the model is trained, you will then try out your model on images of German traffic signs that you find on the web.
 
 The included Ipython notebook is based heavily on the starter code and instructions in the example [Ipython notebook](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb). 
-
-This write-up is based on the [write-up template](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/writeup_template.md).
 
 To meet specifications, the project submission consist of three files: 
 * The Ipython notebook "Traffic_Sign_Classifier-Rob_Poyck.ipynb" with the code
 * The code exported as an html file "Traffic_Sign_Classifier-Rob_Poyck"
 * A write-up report either as a markdown or PDF file 
 
-Creating a Great Write-up
----
-A great write-up should include the [rubric points](https://review.udacity.com/#!/rubrics/481/view) as well as your description of how you addressed each point.  You should include a detailed description of the code used in each step (with line-number references and code snippets where necessary), and links to other supporting documents or external references.  You should include images in your write-up to demonstrate how your code works with examples.  
-
-
-The Project
+# The Project
 ---
 The goals / steps of this project are the following:
  * Load the data set
@@ -67,20 +60,40 @@ In order to speed up the learning process, weight decay and estimation and to av
 
 ## Model architecture
 This is has mainly been copied from the already available LeNet example, because this is good at classifying letters and numbers, which are also an important element in traffic signs. It consists of:
- * Convolution layer 1. Input shape 32x32x3 or 32x32x1 depending on use of grayscaling. Output shape 28x28x6, classifies simple shapes.
- * Activation 1. Relu. which is one of the simplest non-linear functions, which is easy and light while still being able to represent non linear features.
- * Pooling layer 1. Output shape 14x14x6. This decreases the output size which reduces the number of parameters in the consequtive layers, for faster processing. Because multiple pixels are combined the network will be less sensitive for pattern shifts.
- * Convolution layer 2. Output shape 10x10x16, classifying more complex composite shapes
- * Activation 2. Relu, same reason as activation 1.
- * Pooling layer 2. Output shape 5x5x16. Same reason as pooling 1.
- * Flatten layer. Flatten the output shape of the final pooling layer such that it's 1D instead of 3D. 400 outputs.
- * Fully connected layer 1. 120 outputs.
- * Activation 3. Relu, same reason as activation 1.
- * Dropout 1. Chosen to reduce overfitting initially observed by the higher increase of the training set accuracy compared to the validation accuracy increase. It does this by random setting part of the output values to 0, training the network to handle uncertainty in the layer interface and forcing it to introduce redundancy.
- * Fully connected layer 2. 84 outputs.
- * Activation 4. Relu, same reason as activation 1.
- * Dropout 2. Same reason as dropout 1.
- * Fully connected layer 3. 43 outputs which are the logits predicting the class of the sign in the image.
+ * Convolution layer 1. 
+     * Input shape 32x32x3 or 32x32x1 depending on use of grayscaling. 
+     * Output shape 28x28x6. 
+     * Classifies simple shapes.
+ * Activation 1. 
+     * Relu. which is one of the simplest non-linear functions, which is easy and light while still being able to represent non linear features.
+ * Pooling layer 1. 
+     * Output shape 14x14x6. 
+     * This decreases the output size which reduces the number of parameters in the consequtive layers, for faster processing. Because multiple pixels are combined the network will be less sensitive for pattern shifts.
+ * Convolution layer 2. 
+     * Output shape 10x10x16. 
+     * Classifying more complex composite shapes.
+ * Activation 2. 
+     * Relu, same reason as activation 1.
+ * Pooling layer 2. 
+     * Output shape 5x5x16. 
+     * Same reason as pooling 1.
+ * Flatten layer. 
+     * Flatten the output shape of the final pooling layer such that it's 1D instead of 3D. 
+     * 400 outputs.
+ * Fully connected layer 1. 
+     * 120 outputs.
+ * Activation 3. 
+     * Relu, same reason as activation 1.
+ * Dropout 1. 
+     * Chosen to reduce overfitting initially observed by the higher increase of the training set accuracy compared to the validation accuracy increase. It does this by random setting part of the output values to 0, training the network to handle uncertainty in the layer interface and forcing it to introduce redundancy.
+ * Fully connected layer 2. 
+     * 84 outputs.
+ * Activation 4. 
+     * Relu, same reason as activation 1.
+ * Dropout 2. 
+     * Same reason as dropout 1.
+ * Fully connected layer 3. 
+     * 43 outputs which are the logits predicting the class of the sign in the image.
 
 ## Training pipeline <a name="trainingPipe"></a>
 Any supplied batch of features is passed through the neural network, after which the given predictions/logits are assessed for correctness with the labels of the same batch by calculating the cross-entropy. Stochastic gradient descent is used to reduce the error of the predictions by using the Tensorflow Adam (ADAptive Moment estimation) optimiser, where the running averages of both the gradients and the second moments of the gradients are used to try and reduce the models' cross entropy by addapting the weights accodingly.
@@ -106,49 +119,49 @@ In order to assess the versitility and flexibility of the system 5 random German
 
 ## Network output
 For each of the traffic signs the top 5 possible answers, ranked by probability as perceived by the network, are displayed with their meaning and probability assumption.  
-![image_r_1](/Writeup-images/11.resized.jpg "Right-of-way at the next intersection"){:height="300%" width="300%"}  
-Actual sign:  11 (Right-of-way at the next intersection)
-Prediction 0: 11 (Right-of-way at the next intersection) with a certainty of: 100%
-Prediction 1: 30 (Beware of ice/snow) with a certainty of: 0%
-Prediction 2: 21 (Double curve) with a certainty of: 0%
-Prediction 3: 40 (Roundabout mandatory) with a certainty of: 0%
-Prediction 4: 27 (Pedestrians) with a certainty of: 0%
+![image_r_1](/Writeup-images/11.resized.jpg "Right-of-way at the next intersection")  
+Actual sign:  11 (Right-of-way at the next intersection)  
+Prediction 0: 11 (Right-of-way at the next intersection) with a certainty of: 100%  
+Prediction 1: 30 (Beware of ice/snow) with a certainty of: 0%  
+Prediction 2: 21 (Double curve) with a certainty of: 0%  
+Prediction 3: 40 (Roundabout mandatory) with a certainty of: 0%  
+Prediction 4: 27 (Pedestrians) with a certainty of: 0%  
 <br>
 
 ![image_r_2](/Writeup-images/18.resized.jpg "General caution")  
-Actual sign:  18 (General caution)
-Prediction 0: 18 (General caution) with a certainty of: 86%
-Prediction 1: 26 (Traffic signals) with a certainty of: 13%
-Prediction 2: 27 (Pedestrians) with a certainty of: 0%
-Prediction 3: 24 (Road narrows on the right) with a certainty of: 0%
-Prediction 4: 11 (Right-of-way at the next intersection) with a certainty of: 0%
+Actual sign:  18 (General caution)  
+Prediction 0: 18 (General caution) with a certainty of: 86%  
+Prediction 1: 26 (Traffic signals) with a certainty of: 13%  
+Prediction 2: 27 (Pedestrians) with a certainty of: 0%  
+Prediction 3: 24 (Road narrows on the right) with a certainty of: 0%  
+Prediction 4: 11 (Right-of-way at the next intersection) with a certainty of: 0%  
 <br>
 
-![image_r_3](/Writeup-images/21.resized.jpg "Double curve")
-Actual sign:  21 (Double curve)
-Prediction 0: 28 (Children crossing) with a certainty of: 96%
-Prediction 1: 20 (Dangerous curve to the right) with a certainty of: 3%
-Prediction 2: 11 (Right-of-way at the next intersection) with a certainty of: 0%
-Prediction 3: 23 (Slippery road) with a certainty of: 0%
-Prediction 4: 30 (Beware of ice/snow) with a certainty of: 0%
+![image_r_3](/Writeup-images/21.resized.jpg "Double curve")  
+Actual sign:  21 (Double curve)  
+Prediction 0: 28 (Children crossing) with a certainty of: 96%  
+Prediction 1: 20 (Dangerous curve to the right) with a certainty of: 3%  
+Prediction 2: 11 (Right-of-way at the next intersection) with a certainty of: 0%  
+Prediction 3: 23 (Slippery road) with a certainty of: 0%  
+Prediction 4: 30 (Beware of ice/snow) with a certainty of: 0%  
 <br>
 
-![image_r_4](/Writeup-images/25.resized.jpg "Road work")
-Actual sign:  25 (Road work)
-Prediction 0: 25 (Road work) with a certainty of: 100%
-Prediction 1: 20 (Dangerous curve to the right) with a certainty of: 0%
-Prediction 2: 22 (Bumpy road) with a certainty of: 0%
-Prediction 3: 31 (Wild animals crossing) with a certainty of: 0%
-Prediction 4: 10 (No passing for vehicles over 3.5 metric tons) with a certainty of: 0%
+![image_r_4](/Writeup-images/25.resized.jpg "Road work")  
+Actual sign:  25 (Road work)  
+Prediction 0: 25 (Road work) with a certainty of: 100%  
+Prediction 1: 20 (Dangerous curve to the right) with a certainty of: 0%  
+Prediction 2: 22 (Bumpy road) with a certainty of: 0%  
+Prediction 3: 31 (Wild animals crossing) with a certainty of: 0%  
+Prediction 4: 10 (No passing for vehicles over 3.5 metric tons) with a certainty of: 0%  
 <br>
 
-![image_r_5](/Writeup-images/31.resized.jpg "Wild animals crossing")
-Actual sign:  31 (Wild animals crossing)
-Prediction 0: 18 (General caution) with a certainty of: 88%
-Prediction 1: 26 (Traffic signals) with a certainty of: 9%
-Prediction 2: 0 (Speed limit (20km/h)) with a certainty of: 1%
-Prediction 3: 38 (Keep right) with a certainty of: 0%
-Prediction 4: 4 (Speed limit (70km/h)) with a certainty of: 0%
+![image_r_5](/Writeup-images/31.resized.jpg "Wild animals crossing")  
+Actual sign:  31 (Wild animals crossing)  
+Prediction 0: 18 (General caution) with a certainty of: 88%  
+Prediction 1: 26 (Traffic signals) with a certainty of: 9%  
+Prediction 2: 0 (Speed limit (20km/h)) with a certainty of: 1%  
+Prediction 3: 38 (Keep right) with a certainty of: 0%  
+Prediction 4: 4 (Speed limit (70km/h)) with a certainty of: 0%  
 <br>
 
 ## Assessing the results
@@ -174,15 +187,3 @@ The following possible improvements can be tried to further optimise the neural 
 
 # Dependencies
 For this lab the [CarND Term1 Starter Kit](https://github.com/udacity/CarND-Term1-Starter-Kit) was used.
-
-# Dataset and Repository
-
-1. Download the data set. The classroom has a link to the data set in the "Project Instructions" content. This is a pickled dataset in which we've already resized the images to 32x32. It contains a training, validation and test set.
-2. Clone the project, which contains the Ipython notebook and the writeup template.
-```sh
-git clone https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project
-cd CarND-Traffic-Sign-Classifier-Project
-jupyter notebook Traffic_Sign_Classifier.ipynb
-```
-
-
