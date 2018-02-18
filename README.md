@@ -47,8 +47,10 @@ Which is how it is described and expected. The maximum and minimum values of the
 
 ## Data content and quality <a name="Data_con_&_qual"></a>
 As for the physical content of the datasets, a random list of 10 signs with their label and label meaning is shown as output during every run. This has given the following insights:
- * The low resolution of the images results in a satisfactory identifiablity for the shape of the shield, but not of the details contained in it. This means that classes of signs (warnings, prohibitions, obligations, etc.) are distinguishable, but the contents (actual limit speed, or type of warning e.g. wild animal, bumps or children crossing) can sometimes not be clear at all. Such as in ![image 1](/Writeup-images/Image_2-Slippery-road.png "Slippery road") and ![image 2](/Writeup-images/Image_3-Slippery-road.png "Slippery road").
- * Some of the images have such a low resolution or lack of contrast that even I cannot distiguish what sign it is. Since these signs are still classified in the network somehow, this might effect the quality of the network. Such as in ![image 3](/Writeup-images/Image_1-Keep_right.png "Keep right") and ![image 4](/Writeup-images/Image_4-No_passing_for_vehicles_over_3.5_metric_tons.png "No passing for vehicles over 3.5 metric tons").
+ * The low resolution of the images results in a satisfactory identifiablity for the shape of the shield, but not of the details contained in it. This means that classes of signs (warnings, prohibitions, obligations, etc.) are distinguishable, but the contents (actual limit speed, or type of warning e.g. wild animal, bumps or children crossing) can sometimes not be clear at all. Such as in:  
+![image 1](/Writeup-images/Image_2-Slippery-road.png "Slippery road") and ![image 2](/Writeup-images/Image_3-Slippery-road.png "Slippery road").  
+ * Some of the images have such a low resolution or lack of contrast that even I cannot distiguish what sign it is. Since these signs are still classified in the network somehow, this might effect the quality of the network. Such as in:  
+![image 3](/Writeup-images/Image_1-Keep_right.png "Keep right") and ![image 4](/Writeup-images/Image_4-No_passing_for_vehicles_over_3.5_metric_tons.png "No passing for vehicles over 3.5 metric tons").  
  * The labels I have inspected always match the signs on the images as far as the signs are distinguishable legible.
 
 ## Data diversity
@@ -104,21 +106,23 @@ In order to assess the versitility and flexibility of the system 5 random German
 
 ## Network output
 For each of the traffic signs the top 5 possible answers, ranked by probability as perceived by the network, are displayed with their meaning and probability assumption.  
-![image_r_1](/Writeup-images/11.resized.jpg "Right-of-way at the next intersection")
+![image_r_1](/Writeup-images/11.resized.jpg "Right-of-way at the next intersection" =96x96)  
 Actual sign:  11 (Right-of-way at the next intersection)
 Prediction 0: 11 (Right-of-way at the next intersection) with a certainty of: 100%
 Prediction 1: 30 (Beware of ice/snow) with a certainty of: 0%
 Prediction 2: 21 (Double curve) with a certainty of: 0%
 Prediction 3: 40 (Roundabout mandatory) with a certainty of: 0%
 Prediction 4: 27 (Pedestrians) with a certainty of: 0%
+<br>
 
-![image_r_2](/Writeup-images/18.resized.jpg "General caution")
+![image_r_2](/Writeup-images/18.resized.jpg "General caution")  
 Actual sign:  18 (General caution)
 Prediction 0: 18 (General caution) with a certainty of: 86%
 Prediction 1: 26 (Traffic signals) with a certainty of: 13%
 Prediction 2: 27 (Pedestrians) with a certainty of: 0%
 Prediction 3: 24 (Road narrows on the right) with a certainty of: 0%
 Prediction 4: 11 (Right-of-way at the next intersection) with a certainty of: 0%
+<br>
 
 ![image_r_3](/Writeup-images/21.resized.jpg "Double curve")
 Actual sign:  21 (Double curve)
@@ -127,6 +131,7 @@ Prediction 1: 20 (Dangerous curve to the right) with a certainty of: 3%
 Prediction 2: 11 (Right-of-way at the next intersection) with a certainty of: 0%
 Prediction 3: 23 (Slippery road) with a certainty of: 0%
 Prediction 4: 30 (Beware of ice/snow) with a certainty of: 0%
+<br>
 
 ![image_r_4](/Writeup-images/25.resized.jpg "Road work")
 Actual sign:  25 (Road work)
@@ -135,6 +140,7 @@ Prediction 1: 20 (Dangerous curve to the right) with a certainty of: 0%
 Prediction 2: 22 (Bumpy road) with a certainty of: 0%
 Prediction 3: 31 (Wild animals crossing) with a certainty of: 0%
 Prediction 4: 10 (No passing for vehicles over 3.5 metric tons) with a certainty of: 0%
+<br>
 
 ![image_r_5](/Writeup-images/31.resized.jpg "Wild animals crossing")
 Actual sign:  31 (Wild animals crossing)
@@ -143,6 +149,7 @@ Prediction 1: 26 (Traffic signals) with a certainty of: 9%
 Prediction 2: 0 (Speed limit (20km/h)) with a certainty of: 1%
 Prediction 3: 38 (Keep right) with a certainty of: 0%
 Prediction 4: 4 (Speed limit (70km/h)) with a certainty of: 0%
+<br>
 
 ## Assessing the results
 The conclusion from the output is that the neural network has successfully identified 100% of the traffic sign **shapes**, only the content within this shape was misidentified for 40% of the signs. In both cases of misclassification the neural network also indicated that it was less than 100% sure of this prediction, while two of the correct identification had an assumed certainty of 100%. This at least shows that the network could make the user aware of the fact that it was not completely sure of the prediction.  
