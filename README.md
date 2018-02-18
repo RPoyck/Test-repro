@@ -8,8 +8,8 @@ In this project, I have used what I've learned about deep neural networks and co
 The included Ipython notebook is based heavily on the starter code and instructions in the example [Ipython notebook](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb). 
 
 To meet specifications, the project submission consist of three files: 
-* The [Ipython notebook]("Traffic_Sign_Classifier-Rob_Poyck.ipynb") with the code.
-* The code exported as an [html file]("Traffic_Sign_Classifier-Rob_Poyck.html").
+* The [Ipython notebook](Traffic_Sign_Classifier-Rob_Poyck.ipynb) with the code.
+* The code exported as an [html file](Traffic_Sign_Classifier-Rob_Poyck.html).
 * A write-up report either as a markdown file which you are now reading. 
 
 # The Project
